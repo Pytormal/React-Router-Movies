@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import MovieList from './Movies/MovieList';
+import Movie from './Movies/Movie'
 import SavedList from "./Movies/SavedList";
 
 const App = () => {
@@ -34,7 +35,23 @@ const App = () => {
           ]
         }
       />
-      <div>Replace this Div with your Routes</div>
+
+      <div>
+        <Link to='/'> MovieList</Link>
+        <Link to='/movies'> Movies</Link>
+      </div>
+
+      <Switch>
+        <Route path="/movies/:itemId">
+          <Item items={product} />
+        </Route>
+        <Route path="/shop">
+          <Shop items={product} />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 };
